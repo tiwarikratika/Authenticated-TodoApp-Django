@@ -1,0 +1,64 @@
+<html>
+    <head>
+        
+        <title>
+            {{page}}
+        </title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+        <style>
+          .container{
+            /* fallback for old browsers */
+            
+            background: linear-gradient(to bottom, #ddc5e4, #f7f7ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            width: 100%;
+            height: 100%;  
+          }
+          .text{
+              font-size: 30px;
+              text-align: center;
+              margin-top: 15%;
+          }
+
+          .btns{
+           position: absolute;
+            top:20;
+            right:20;
+            height: 60px;
+          }
+          .main{
+
+            font-size: 50px;
+            font-family: 'Charlie Text',sans-serif;
+
+          }
+
+        </style>
+      
+        <body>
+<div class="container">
+<div class="main">TODO</div>
+<div class="btns pos">
+<a href="{% url 'register_page' %}">
+    <button>Register</button>
+</a>
+
+<a href="{% url 'login_page' %}">
+<button>Login</button>
+</a>
+</div>
+<div class="text"><p><b>Todo helps to move your work forward.</b></h2></div>
+
+<p>Manage your work here. </p>
+<a href="{% url 'register_page' %}">
+    <button>Sign up - it's free</button>
+</a>
+</div>
+
+</body>
+</head>
+</html>

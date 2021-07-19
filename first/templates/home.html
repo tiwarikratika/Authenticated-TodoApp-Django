@@ -1,0 +1,82 @@
+
+<html>
+  <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+<title>
+    {{page}}
+</title>
+</head>
+<style>
+  body{
+    font-family: 'Otomanopee One', sans-serif;
+  }
+  .bg{
+    width: 40%;
+    max-height: 40%;
+    
+
+  }
+  .navbar-custom{
+    background-color: #8B5CF6;
+  }
+  a{
+    text-decoration: none;
+    font-size: large;
+    color: blueviolet;
+  }
+  .custom-col{
+    color: #EC4899;
+  }
+  
+
+</style>
+
+<body>
+  <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand title" href="#">My Todo App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login_page' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register_page' %}">Register</a>
+        </li>
+        
+
+      </ul>
+     
+    </div>
+  </nav>
+ 
+
+    <div class="row justify-content-around my-5">
+      
+        
+          <h1 class="custom-col mx-auto heading text-center ">Welcome to my todo app</h1>
+
+          <img class="bg" src="https://media.istockphoto.com/vectors/young-woman-filling-long-paper-note-with-to-do-list-and-giant-pencil-vector-id1160018579?k=6&m=1160018579&s=612x612&w=0&h=OSBDrnvdIRbmUxZEMCY-6lW3Z1l_6O4HmiHUM53YWwM=">
+         
+       
+        
+          <div class="text-center mt-4"><a href="{% url 'register_page' %}" class="linkk ">New here ? Register yourself</a><br>
+         <a href="{% url 'login_page' %}" class="linkk">Already have an account? Login</a> 
+        </div>
+      
+      </div>
+    </div>
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

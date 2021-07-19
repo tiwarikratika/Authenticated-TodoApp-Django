@@ -1,0 +1,266 @@
+<html>
+    <head>
+        <title>Todo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        </head>
+        <style>
+            .wrapper {
+   
+              align-items: center;
+              justify-content: center;
+            }
+            
+            .typing-demo {
+              width: 30ch;
+              animation: typing 2s steps(25), blink .5s step-end infinite alternate;
+              white-space: nowrap;
+              overflow: hidden;
+              border-right: 3px solid;
+              font-family: monospace;
+              font-size: 2em;
+            }
+            
+            @keyframes typing {
+              from {
+                width: 0
+              }
+            }
+                
+            @keyframes blink {
+              50% {
+                border-color: transparent
+              }
+            }
+            .navbar-custom{
+              background-color: #8B5CF6;
+            }
+          </style>
+        <body>
+            <nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand title" href="#">My Todo App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+            
+                    <li class="nav-item">
+                      <a class="nav-link" href="logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+            
+                  </ul>
+                 
+                </div>
+              </nav>
+            <div class="container">
+                <div class="text-center">
+                   
+                        <div class=" my-5"><h2 class="text-black mx-auto heading text-center">Hello, {{user.first_name}} !! </h2>
+                           
+                       
+                      </div>
+                      <h4>You can create your todos here</h4>
+                    </div>
+                <form method="POST">
+                    {% csrf_token %}
+             <input type="text" name="todo" class="form-control mt-5" placeholder="Enter tools">
+             <button type="submit" class="btn btn-primary mt-4">Create Todo</button>
+
+
+            </form>
+
+            <ul class="list-group">
+                {% for todo in todos %}
+                <li class="list-group-item mt-4">
+                {% if todo.is_complete %}
+                <strike>{{todo.todo_name}}</strike>
+                {% else %}
+                {{todo.todo_name }}
+                {% endif %}
+                
+               
+
+                <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger"> Delete</a>
+                <a href="{% url 'mark_as_complete' todo.id %}" class = "btn btn-success">Mark completed</a>
+            </li>
+                {% endfor %}
+              </ul>
+            </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 
+        </body>
+    </head>
+    </html>
+
+
+
+
+    <!-- <html>
+    <head>
+        <title>Login</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        </head>
+        <style>
+          .wrapper {
+ 
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .typing-demo {
+            width: 30ch;
+            animation: typing 2s steps(25), blink .5s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-family: monospace;
+            font-size: 2em;
+          }
+          
+          @keyframes typing {
+            from {
+              width: 0
+            }
+          }
+              
+          @keyframes blink {
+            50% {
+              border-color: transparent
+            }
+          }
+        </style>
+<body>
+
+   
+
+    
+
+
+
+
+
+
+
+
+
+<!-- <html>
+    <head>
+        <title>Todo</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: rgb(223, 232, 233);
+            }
+
+            .place{
+                width: 0rem;
+            }
+            .wrapper {
+ 
+                align-items: center;
+                justify-content: center;
+              }
+              
+              .typing-demo {
+                width: 30ch;
+                animation: typing 2s steps(2), blink .5s step-end infinite alternate;
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: 3px solid;
+                font-family: monospace;
+                font-size: 2em;
+              }
+              
+              @keyframes typing {
+                from {
+                  width: 0
+                }
+              }
+                  
+              @keyframes blink {
+                50% {
+                  border-color: transparent
+                }
+              }
+
+        </style>
+    </head>
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand title" href="#">My Todo App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+            
+                    <li class="nav-item">
+                      <a class="nav-link" href="logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+            
+                  </ul>
+                 
+                </div>
+              </nav>
+
+            <div class="container">  
+                <div class="text-center">
+                <div class="wrapper">
+                    <div class="typing-demo my-5"><h2 class="text-black mx-auto heading text-center">Hello, {{user.first_name}} !! </h2>
+                       
+                    </div>
+                  </div>
+                  <h4>You can create your todos here</h4>
+                </div>
+
+                
+               
+                <form method="POST">
+                    {% csrf_token %}
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter todos">
+            
+             <button type="submit" class="btn btn-primary mt-4">Create Todo</button>
+
+
+            </form>
+            <div class="card" style="width: 350px;">
+                <div class="card-header">
+                  My todos
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for todo in todos %}
+                  <li class="list-group-item">
+                  {% if todo.is_complete %}
+                  <strike>{{todo.todo_name}}</strike>
+                  {% else %}
+                  {{todo.todo_name }}
+                  {% endif %}
+              
+                
+               
+
+                <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger"> Delete</a>
+                <a href="{% url 'mark_as_complete' todo.id %}" class = "btn btn-success">Mark completed</a>
+            </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        </body>
+  
+    </html> -->
+
